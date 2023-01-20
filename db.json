@@ -1,0 +1,73 @@
+{
+  "teachers": [
+    {
+      "id": 1,
+      "fullName": "Name Namesson",
+      "SNS": 128731233,
+      "email": "name.namesson@wc.edu.com",
+      "mobileNumber": "0701111111",
+      "qualifications": [
+        "Tying shoelaces",
+        "brushing teeth"
+      ]
+    },
+    {
+      "id": 2,
+      "fullName": "John Doe",
+      "SNS": 123456789,
+      "email": "john.doe@wc.edu.com",
+      "mobileNumber": "0702222222",
+      "qualifications": [
+        "Tying shoelaces",
+        "brushing teeth"
+      ]
+    },
+    {
+        
+      "id": 3,
+      "SNS": "1343246364",
+      "fullName": "Hanna Binder Ekedahl",
+      "email": "diging@hotmail.com",
+      "mobileNumber": "+46790190325",
+      "qualifications": [
+        "Raising my voice",
+        "handing out flyers",
+        "slandering"
+      ]
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "courseNumber": "M02",
+      "courseTitle": "How to tie your shoes",
+      "weeks": 20,
+      "startDate": "2023-02-28",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "id": 2,
+      "courseNumber": "C01",
+      "courseTitle": "How to brush your teeth",
+      "weeks": 12,
+      "startDate": "2023-03-10",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "id": 3,
+      "courseNumber": "F22",
+      "courseTitle": "How to pronounce 'Tuesday'",
+      "weeks": 12,
+      "startDate": "2023-03-10",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "courseNumber": "a",
+      "courseTitle": "a",
+      "weeks": "1",
+      "startDate": "2023-01-30",
+      "description": "aaa",
+      "id": 4
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+.navigation {
+  position: absolute;
+  top: 100px;
+  right: 0;
+  width: 30vw;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--navbar-background);
+  font-weight: bold;
+}
+
+.navigation_item {
+  border-top: solid 2px var(--secondary-color);
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.message{
+    font-size: 1rem;
+    font-weight: normal;
+    align-self: flex-end;
+    text-align: right;
+}
+.icon{
+    height: 30px;
+}
+.icon:hover{
+    cursor: pointer;
+}
