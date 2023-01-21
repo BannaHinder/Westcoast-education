@@ -31,8 +31,8 @@ function App() {
               ) : (
                 <div
                   onClick={context.toggleLogin}
-                >
-                  Log in <LockIcon className="icon" />
+                ><LockIcon className="icon" /><br/>
+                  Log in 
                 </div>
               )}
             </div>

@@ -17,12 +17,18 @@
   right: 20vw;
   z-index: 10000;
   background-color: var(--background-color);
-  min-width: 280px;
   max-height: 80vh;
   padding: 20px 50px 50px 50px;
   border: 2px solid var(--primary-color);
   border-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+@media screen and (max-width: 450px) {
+  .modalWrapper{
+    left: 10vw;
+    right:10vw;
+    padding: 20px ;
+  }
 }
 .modalcontent {
   display: flex;

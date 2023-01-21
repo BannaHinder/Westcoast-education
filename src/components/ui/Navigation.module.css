@@ -9,7 +9,6 @@
   background-color: var(--navbar-background);
   font-weight: bold;
 }
-
 .navigation_item {
   border-top: solid 2px var(--secondary-color);
   height: 100px;
@@ -30,4 +29,9 @@
 }
 .icon:hover{
     cursor: pointer;
+}
+@media screen and (max-width: 400px) {
+  .navigation{
+    overflow-wrap: break-word;
+  }
 }
