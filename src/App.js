@@ -8,7 +8,7 @@ import { ReactComponent as HamburgerIcon } from "./assets/icon-1.svg";
 import { ReactComponent as LockIcon } from "./assets/icon-2.svg";
 
 import { Route, Routes } from "react-router-dom";
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 
 import WCContext from "./components/wc_context.js";
 
@@ -29,11 +29,11 @@ function App() {
                   onClick={() => toggleMenu((showMenu) => !showMenu)}
                 ></HamburgerIcon>
               ) : (
-                <div
+                <button
                   onClick={context.toggleLogin}
                 ><LockIcon className="icon" /><br/>
                   Log in 
-                </div>
+                </button>
               )}
             </div>
             {showMenu && <Navigation toggleMenu={toggleMenu} />}

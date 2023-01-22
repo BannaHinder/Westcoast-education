@@ -6,7 +6,7 @@ const WCContext = React.createContext({
   showModal: false,
   courseList: [],
   fetchCourses: ()=>{},
-  authHandler: () => {},
+  auth: () => {},
   toggleLogin: () => {},
   toggleModal: () => {},
   postData: () => {},

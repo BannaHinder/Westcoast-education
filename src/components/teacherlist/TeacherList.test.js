@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import TeacherList from "./TeacherList";
 import { BrowserRouter } from "react-router-dom";
+import { setupServer } from "msw/node";
+import { rest } from "msw";
 
 describe("List of teachers ", () => {
   const setup = () => render(<TeacherList />);
@@ -9,7 +11,7 @@ describe("List of teachers ", () => {
     const titleElement = screen.getByText(/Teachers/);
     expect(titleElement).toBeInTheDocument();
   });
-  test("API fetch works and populate teacher list", () => {
+  test("API fetch works and populate teacher list", async () => {
     setup();
 
     const server = setupServer(
@@ -29,7 +31,7 @@ describe("List of teachers ", () => {
       })
     );
     server.listen();
-    const listElements = screen.queryAllByRole("listitem");
+    const listElements = await screen.findAllByRole("listitem");
     expect(listElements).not.toHaveLength(0);
   });
 });
