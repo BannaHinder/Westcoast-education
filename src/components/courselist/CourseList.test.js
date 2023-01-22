@@ -1,16 +1,21 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, cleanup} from "@testing-library/react";
 import CourseList from "./CourseList";
-//import { setupServer } from "msw/node";
+import { setupServer } from "msw/node";
 import { BrowserRouter } from "react-router-dom";
-//import { rest } from "msw";
+import { rest } from "msw";
 import { WCContextProvider } from "../wc_context";
 
-describe("datafetching and display of course data w <WCContextProvider>", () => {
+describe( "and display of course data w <WCContextProvider>", () => {
+
+    //HEJ O HÅ DET FUNKAR INTE MED CLEANUP FUNCTIONS
+  // afterEach(() => {
+  //   cleanup();
+  // });
+
   test("provides expected WCContext obj to child elements using jest mockdata", async () => {
-    const fetchCourses = jest.fn();
 
     render(
-      <WCContextProvider value={{ fetchCourses }}>
+      <WCContextProvider value={{ fetchCourses: jest.fn() }}>
         <CourseList />
       </WCContextProvider>,
       { wrapper: BrowserRouter }
@@ -32,44 +37,52 @@ describe("datafetching and display of course data w <WCContextProvider>", () => 
     });
 
     const courses = await screen.findAllByRole("listitem");
-
     expect(courses).not.toHaveLength(0);
+
   });
+})
 
-  // test("same style data rendering using MSW", async () => {
-  //   const fetchCourses = jest.fn()
+//Ok så om man kör dem separat så funkar de, men samtidigt: NEJ.
+//är 99% säker på att det handlar om att den inbyggda cleanup function inte gör det den ska
+//Men jag vet inte hur man implementerar en egen 
 
-  //   render(
-  //     <WCContextProvider value={{fetchCourses}}>
-  //       <CourseList/>
-  //     </WCContextProvider>,
-  //      {wrapper: BrowserRouter}
-  //   )
-  //   const server = setupServer(
-  //     rest.get("http://localhost:3010/courses", (req, res, context) => {
-  //       return res(
-  //         context.json([
-  //           {
-  //             id: 2,
-  //             courseNumber: "C01",
-  //             courseTitle: "How to brush your teeth",
-  //             weeks: 12,
-  //             startDate: "2023-03-10",
-  //             description:
-  //               "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  //           },
-  //         ])
-  //       );
-  //     })
-  //   );
-  //   server.listen();
-  //   const listItems = await screen.findAllByRole("listitem");
-  //   expect(listItems).not.toHaveLength(0);
-  // });
+// describe(" and display course data w <WCContextProvider>",() =>{
+
+//   test("same style data rendering using MSW", async () => {
+//     render(
+//       <WCContextProvider value={{fetchCourses: jest.fn(() => Promise.resolve()), coursesList: []}}>
+//         <CourseList/>
+//       </WCContextProvider>,
+//        {wrapper: BrowserRouter}
+//     )
+//     const server = setupServer(
+//       rest.get("http://localhost:3010/courses", (req, res, context) => {
+//         return res(
+//           context.status(301),
+//           context.set('Content-Type', 'application/json'),
+//           context.json([
+//             {
+//               id: 2,
+//               courseNumber: "C01",
+//               courseTitle: "How to brush your teeth",
+//               weeks: 12,
+//               startDate: "2023-03-10",
+//               description:
+//                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+//             },
+//           ])
+//         );
+//       })
+//     );
+//     server.listen();
+//     const listItems = await screen.findAllByRole("listitem");
+//     expect(listItems).not.toHaveLength(0);
+//   });
 
 
 
-  // Testing portals is too difficult man
+  // Testing portals is too difficult man I QUIT
+
   //   test('posting data from form', async ()=>{
   //     setup();
   //     let requestBody;
@@ -114,4 +127,4 @@ describe("datafetching and display of course data w <WCContextProvider>", () => 
 
   //     server.close();
   //   })
-});
+//});

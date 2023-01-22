@@ -28,10 +28,16 @@ export const WCContextProvider = (props) => {
     fetchCourses()
   },[]);
 
-  const fetchCourses= ()=>{
-    fetch("http://localhost:3010/courses")
+  const fetchCourses=  ()=>{
+    try{
+      fetch("http://localhost:3010/courses")
       .then((response) => response.json())
       .then((data) => setCourseList(data));
+    } catch (error) {
+      console.log(error);
+      return;
+    }
+    
   }
 
   const authHandler = () => {
